@@ -34,13 +34,13 @@ First, create the formulary in /api/forms folder
 module.exports = {
   body: async function () {
     return {
-        name: 'user',
-        type: 'object',
+        name: "user",
+        type: "object",
         fields: [
-            { name: 'name' },
-            { name: 'email' },
-            { name: 'address' },
-            { name: 'phones' , type: 'array' }
+            { name: "name" },
+            { name: "email" },
+            { name: "address" },
+            { name: "phones" , type: "array" }
         ]
     };
   }
@@ -102,26 +102,26 @@ fn: async function (inputs, exits) {
 module.exports = {
   body: async function () {
     return {
-        name: 'users',
-        type: 'array',
+        name: "users",
+        type: "array",
         fields: [
-            { name: 'name' },
-            { name: 'email' },
+            { name: "name" },
+            { name: "email" },
             { 
-                name: 'address',
-                type: 'object',
+                name: "address",
+                type: "object",
                 fields: [
-                    { name: 'street' },
-                    { name: 'number' }
+                    { name: "street" },
+                    { name: "number" }
                 ]
             },
-            { name: 'phones' , type: 'array' },
+            { name: "phones" , type: "array" },
             { 
-                name: 'contacts', 
-                type: 'array',
+                name: "contacts", 
+                type: "array",
                 fields: [
-                    { name: 'name' },
-                    { email: 'email' }
+                    { name: "name" },
+                    { email: "email" }
                 ]
             }
         ]
@@ -138,20 +138,20 @@ You can modify the fields of the form according to the type of request or anythi
 module.exports = {
   body: async function (req, user_role) {
       let basic_body = {
-          name: 'user',
-          type: 'object',
+          name: "user",
+          type: "object",
           fields: [
-               { name: 'name' },
-               { name: 'email' },
-               { name: 'address' },
-               { name: 'phones' , type: 'array' }
+               { name: "name" },
+               { name: "email" },
+               { name: "address" },
+               { name: "phones" , type: "array" }
            ]
        };
       if(req.method == "POST"){
-          basic_body.fields.push({ name: 'password' });
+          basic_body.fields.push({ name: "password" });
       }
       if(user_role == "ADMIN"){
-          basic_body.fields.push({ name: 'role' });
+          basic_body.fields.push({ name: "role" });
       }
       return basic_body;
   }
