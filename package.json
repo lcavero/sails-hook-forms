@@ -1,0 +1,12 @@
+{
+  "name": "sails-hook-forms",
+  "version": "1.0.1",
+  "description": "Sails hooks to improve forms",
+  "main": "index.js",
+  "sails": {
+    "isHook": true
+  },
+  "dependencies": {
+    "include-all": "^4.0.3"
+  }
+}
