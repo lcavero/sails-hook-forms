@@ -164,6 +164,6 @@ Then, in the controller...
 // /api/controllers/user/create.js
 fn: async function (inputs, exits) {
     var role = "ADMIN";
-    var proccessed = await sails.forms.standard.process(this.req, role);
+    var proccessed = await sails.forms.user.process(this.req, role);
 }
 ```
