@@ -1,6 +1,6 @@
 {
   "name": "sails-hook-forms",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Sails hooks to improve forms",
   "main": "index.js",
   "sails": {
@@ -9,8 +9,8 @@
   "dependencies": {
     "include-all": "^4.0.3"
   },
-  "repository" :
-  { "type" : "git"
-  , "url" : "https://github.com/lcavero/sails-hook-forms"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lcavero/sails-hook-forms"
   }
 }
