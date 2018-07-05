@@ -1,6 +1,6 @@
 {
   "name": "sails-hook-forms",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Sails hooks to improve forms",
   "main": "index.js",
   "author": {
@@ -17,5 +17,10 @@
     "type": "git",
     "url": "https://github.com/lcavero/sails-hook-forms"
   },
-  "keywords":  ["sails", "form", "forms", "hook"]
+  "keywords": [
+    "sails",
+    "form",
+    "forms",
+    "hook"
+  ]
 }
