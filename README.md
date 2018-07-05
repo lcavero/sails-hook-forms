@@ -40,7 +40,7 @@ module.exports = {
             { name: "name" },
             { name: "email" },
             { name: "address" },
-            { name: "phones" , type: "array" }
+            { name: "phones", type: "array" }
         ]
     };
   }
