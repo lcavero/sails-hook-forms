@@ -62,6 +62,9 @@ function constructForm(req, field, obj, form, parent) {
                 }
             }
             obj[field.name] = new_arr;
+        }else if(field.type == "array"){
+            obj[field.name] = parent[field.name];
+
         }else if(field.type == "object" && field.hasOwnProperty('fields')){
             let new_obj = {};
             for(let f in field.fields){
@@ -72,9 +75,11 @@ function constructForm(req, field, obj, form, parent) {
                 obj[field.name] = new_obj;
             }
         }else{
-            if(typeof parent[field.name] != "string"
-                && typeof parent[field.name] != "number"
-                && typeof parent[field.name] != "boolean"){
+            if(
+                (typeof parent[field.name] == "string") ||
+                (typeof parent[field.name] == "number") ||
+                (typeof parent[field.name] == "boolean")
+            ){
                 obj[field.name] = parent[field.name];
             }
         }
