@@ -19,15 +19,19 @@ module.exports = function (sails) {
 
                 let body = forms[f].body(req, ...args);
 
-                if(body.constructor.name == "Promise"){
+                if(body.constructor && body.constructor.name == "Promise"){
                     body = await body;
                 }
 
-                let proccessed_obj = constructForm(req, body, {}, f);
-                if(proccessed_obj){
-                    return proccessed_obj[body.name];
+                if(!req.body){
+                  return null;
                 }else{
-                    return null;
+                    let proccessed_obj = constructForm(body, {}, f, req.body);
+                    if(proccessed_obj){
+                        return proccessed_obj[body.name];
+                    }else{
+                        return null;
+                    }
                 }
             }
             sails.forms[f] = forms[f];
@@ -38,13 +42,9 @@ module.exports = function (sails) {
 };
 
 
-function constructForm(req, field, obj, form, parent) {
+function constructForm(field, obj, form, parent) {
     if(typeof field != "object" || !field.hasOwnProperty("name")){
         throw new Error("All fields should has a \"name\" key in " + form + " formulary");
-    }
-
-    if(!parent){
-        parent = req.body;
     }
 
     if(parent[field.name]){
@@ -54,7 +54,7 @@ function constructForm(req, field, obj, form, parent) {
                 for(let bf in parent[field.name]){
                     let new_obj = {};
                     for(let f in field.fields){
-                        constructForm(req, field.fields[f], new_obj, form, parent[field.name][bf]);
+                        constructForm(field.fields[f], new_obj, form, parent[field.name][bf]);
                     }
                     if(Object.keys(new_obj).length > 0){
                         new_arr.push(new_obj);
@@ -67,7 +67,7 @@ function constructForm(req, field, obj, form, parent) {
         }else if(field.type == "object" && field.hasOwnProperty('fields')){
             let new_obj = {};
             for(let f in field.fields){
-                constructForm(req, field.fields[f], new_obj, form, parent[field.name]);
+                constructForm(field.fields[f], new_obj, form, parent[field.name]);
             }
 
             if(Object.keys(new_obj).length > 0){
