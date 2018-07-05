@@ -3,6 +3,10 @@
   "version": "1.0.3",
   "description": "Sails hooks to improve forms",
   "main": "index.js",
+  "author": {
+    "name": "Luis Cavero Martínez",
+    "email": "luiscaverodeveloper@gmail.com"
+  },
   "sails": {
     "isHook": true
   },
@@ -12,5 +16,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/lcavero/sails-hook-forms"
-  }
+  },
+  "keywords":  ["sails", "form", "forms", "hook"]
 }
