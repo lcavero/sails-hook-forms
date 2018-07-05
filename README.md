@@ -18,6 +18,19 @@ First, create the formulary in /api/forms folder
 
 ```js
 // /api/forms/user.js
+
+// Expected body
+/**
+    {
+        user: {
+             name: "Cavero",
+             email: "cavero@gmail.com",
+             address: "12, Baker Street",
+             phones: ["877-656565", "878-989898"]
+        }
+    }
+*/
+
 module.exports = {
   body: async function () {
     return {
@@ -39,7 +52,7 @@ Then, in the controller...
 ```js
 // /api/controllers/user/create.js
 fn: async function (inputs, exits) {
-    var proccessed = await sails.forms.standard.process(this.req);
+    var proccessed = await sails.forms.user.process(this.req);
     /**
      processed =  {
           name: "Cavero",
@@ -87,10 +100,9 @@ fn: async function (inputs, exits) {
 
 // /api/forms/user.js
 module.exports = {
-
   body: async function () {
     return {
-        name: 'user',
+        name: 'users',
         type: 'array',
         fields: [
             { name: 'name' },
