@@ -62,9 +62,8 @@ function constructForm(req, field, obj, form, parent) {
                 }
             }
             obj[field.name] = new_arr;
-        }else if(field.type == "array"){
+        }else if(field.type == "array" && Array.isArray(parent[field.name])){
             obj[field.name] = parent[field.name];
-
         }else if(field.type == "object" && field.hasOwnProperty('fields')){
             let new_obj = {};
             for(let f in field.fields){
