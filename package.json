@@ -1,6 +1,6 @@
 {
   "name": "sails-hook-forms",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Sails hooks to improve forms",
   "main": "index.js",
   "author": {
